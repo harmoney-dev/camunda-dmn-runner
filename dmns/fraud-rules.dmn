@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="fraudRulesDmn" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.22.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.1.0">
+  <decision id="DecisionFraudRules" name="Fraud rules">
+    <informationRequirement id="InformationRequirement_13mjt3w">
+      <requiredInput href="#input-data-fraud-check-risk" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0sa43qs" hitPolicy="FIRST">
+      <input id="InputClause_0kkfhks" label="bank account holder not exist" biodi:width="278">
+        <inputExpression id="LiteralExpression_0ln9vn4" typeRef="number">
+          <text>isBankAccountHolderMissing</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1jd9586" label="bank account holder unavailable" biodi:width="345">
+        <inputExpression id="LiteralExpression_1el07ds" typeRef="boolean">
+          <text>isBankAccountHolderUnavailable</text>
+        </inputExpression>
+      </input>
+      <input id="Input_1" label="fraud check risk">
+        <inputExpression id="InputExpression_1" typeRef="number">
+          <text>fraudCheckRisk</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="fraud check result" name="fraudCheckResult" typeRef="string" biodi:width="192">
+        <outputValues id="UnaryTests_016z11k">
+          <text>"Successful","Unsuccessful","Failed"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_1cccz1v">
+        <description>bank account holder not exist</description>
+        <inputEntry id="UnaryTests_0ou1xn3">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w9p7l5">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kfz1hq">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_091uco9">
+          <text>"Failed"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1qtsuvi">
+        <description>bank account holder unavailable</description>
+        <inputEntry id="UnaryTests_1nwhyyg">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qddxe5">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_053f3gr">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0d7quij">
+          <text>"Failed"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1tj8c2w">
+        <inputEntry id="UnaryTests_1lyw1mg">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16bccmo">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1utpur5">
+          <text>[0..0.6[</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vv6fl0">
+          <text>"Successful"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_081d908">
+        <inputEntry id="UnaryTests_0ja6drk">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vkirb0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ht6muv">
+          <text>[0.6..1]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wl4ns9">
+          <text>"Successful"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="input-data-fraud-check-risk" name="Fraud check risk" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="DecisionFraudRules">
+        <dc:Bounds height="80" width="180" x="380" y="100" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_12wy3d2" dmnElementRef="input-data-fraud-check-risk">
+        <dc:Bounds height="45" width="125" x="158" y="118" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1c4h2ca" dmnElementRef="InformationRequirement_13mjt3w">
+        <di:waypoint x="283" y="141" />
+        <di:waypoint x="360" y="140" />
+        <di:waypoint x="380" y="140" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

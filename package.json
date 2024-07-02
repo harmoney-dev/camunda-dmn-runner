@@ -1,23 +1,33 @@
 {
-  "name": "camunda-dmn-tester",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "camunda-unit-test",
+  "version": "1.0.0",
+  "description": "Unit test for Camunda DMN and BPMN",
+  "main": "src/index.ts",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "start": "ts-node src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harmoney-dev/camunda-unit-test.git"
+  },
+  "keywords": [
+    "Camunda",
+    "Unit",
+    "Test"
+  ],
+  "author": "Shawn Xia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harmoney-dev/camunda-unit-test/issues"
+  },
+  "homepage": "https://github.com/harmoney-dev/camunda-unit-test#readme",
   "dependencies": {
-    "chart.js": "2.9.4"
-
+    "csv-parser": "^3.0.0"
   },
   "devDependencies": {
-    "vite": "^3.2.3",
-    "typescript": "4.6.2",
-    "@types/chart.js": "2.9.41",
-    "@ui5/webcomponents": "1.8.0",
-    "@ui5/webcomponents-fiori": "1.8.0",
-    "@ui5/webcomponents-icons": "1.8.0"
+    "@types/node": "^20.14.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
   }
 }

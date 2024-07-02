@@ -1,0 +1,1237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="interestRatesCreditLimitsAuDmn" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.21.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.1.0">
+  <decision id="DecisionInterestRatesCreditLimitsAU" name="Interest Rates and Credit Limits AU">
+    <informationRequirement id="InformationRequirement_1aa3u6t">
+      <requiredInput href="#input-probability-of-default" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0gjuawg">
+      <requiredInput href="#InputData_06hfemf" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_17imhnc" hitPolicy="FIRST">
+      <input id="Input_1">
+        <inputExpression id="InputExpression_1" typeRef="number">
+          <text>pd</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0rfkxj7" label="model" biodi:width="192">
+        <inputExpression id="LiteralExpression_0jcbdfc" typeRef="string">
+          <text>model</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_03tjbg6">
+          <text>"hLoan","hMoney"</text>
+        </inputValues>
+      </input>
+      <output id="OutputClause_0z8gnju" name="interestRate" typeRef="number" />
+      <output id="OutputClause_0wdqdh9" name="creditLimit" typeRef="number" />
+      <rule id="DecisionRule_1iop57i">
+        <description>A1</description>
+        <inputEntry id="UnaryTests_1ewjn5o">
+          <text>[0..0.003333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ti3nsx">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0atowbj">
+          <text>5.76</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0fibd4c">
+          <text>70000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1a6cv9q">
+        <description>A2</description>
+        <inputEntry id="UnaryTests_0ag4e6l">
+          <text>[0.00333..0.006667[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0b8771s">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ok11qc">
+          <text>12.99</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_113vnoq">
+          <text>67500</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1wuwjgq">
+        <description>A3</description>
+        <inputEntry id="UnaryTests_0bruhn1">
+          <text>[0.006667..0.01[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qr20nf">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0uizxo5">
+          <text>13.49</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0rtvi8l">
+          <text>65000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_078nko5">
+        <description>A4</description>
+        <inputEntry id="UnaryTests_0lz2b4p">
+          <text>[0.01..0.013333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vst894">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pynh9p">
+          <text>13.99</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_13ahreg">
+          <text>62500</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_111w45n">
+        <description>A5</description>
+        <inputEntry id="UnaryTests_1rsjamm">
+          <text>[0.013333..0.01667[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0z4z7bh">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0kt1re7">
+          <text>14.49</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_16jjtql">
+          <text>60000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1grl5xe">
+        <description>B1</description>
+        <inputEntry id="UnaryTests_1y2so4l">
+          <text>[0.01667..0.02[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18k78eh">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ewhxh1">
+          <text>14.99</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1d0otsy">
+          <text>57500</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0zs43vd">
+        <description>B2</description>
+        <inputEntry id="UnaryTests_13c5nb1">
+          <text>[0.02..0.023333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16v1qpf">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1nwxb2m">
+          <text>15.49</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1x4kmav">
+          <text>55000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1hhq19p">
+        <description>B3</description>
+        <inputEntry id="UnaryTests_0kzqd5b">
+          <text>[0.023333..0.026667[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wgbo7t">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01jzolz">
+          <text>15.99</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_01j80h5">
+          <text>52500</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00qzx51">
+        <description>B4</description>
+        <inputEntry id="UnaryTests_1vrv7ul">
+          <text>[0.026667..0.03[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0u2jngb">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0aqutda">
+          <text>16.49</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0zlrwfa">
+          <text>50000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_14iojw6">
+        <description>B5</description>
+        <inputEntry id="UnaryTests_1d36hxz">
+          <text>[0.03..0.033333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fodtdf">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0hmekyz">
+          <text>18.49</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_015sipv">
+          <text>47500</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1p6gvp0">
+        <description>C1</description>
+        <inputEntry id="UnaryTests_1wm7aqw">
+          <text>[0.033333..0.036667[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06c3l3g">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00t5qkz">
+          <text>19.99</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0x6icdi">
+          <text>45000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0tdc5ba">
+        <description>C2</description>
+        <inputEntry id="UnaryTests_1smijpu">
+          <text>[0.036667..0.04[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yi49kd">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qibcxw">
+          <text>20.99</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ed29vl">
+          <text>42500</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0yr3wkw">
+        <description>C3</description>
+        <inputEntry id="UnaryTests_0r70f2n">
+          <text>[0.04..0.043333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ai89cv">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1wwx1uu">
+          <text>21.99</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_09ghr3n">
+          <text>40000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0gax4wv">
+        <description>C4</description>
+        <inputEntry id="UnaryTests_13eaf2z">
+          <text>[0.043333..0.046667[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yn7azp">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_017e1bz">
+          <text>23.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0llzqs1">
+          <text>37500</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ogvwrf">
+        <description>C5</description>
+        <inputEntry id="UnaryTests_13al7i3">
+          <text>[0.046667..0.05[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_009etbs">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1o5etji">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_171h4ka">
+          <text>35000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0g8u6vd">
+        <description>D1</description>
+        <inputEntry id="UnaryTests_0gwy2a0">
+          <text>[0.05..0.053333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_194xsi5">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ogluk8">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1b35enr">
+          <text>20000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0a9dx49">
+        <description>D2</description>
+        <inputEntry id="UnaryTests_0okqyb8">
+          <text>[0.053333..0.056667[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tlycln">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1rtjsz6">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0f90jyr">
+          <text>20000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_01e2awv">
+        <description>D3</description>
+        <inputEntry id="UnaryTests_18vc2rn">
+          <text>[0.056667..0.06[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_150tzbx">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0jh5mgs">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ktu9pe">
+          <text>20000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1vjesng">
+        <description>D4</description>
+        <inputEntry id="UnaryTests_1uonj74">
+          <text>[0.06..0.063333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kcjncr">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15s3py3">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ky6as8">
+          <text>20000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0a84cm0">
+        <description>D5</description>
+        <inputEntry id="UnaryTests_00dxb38">
+          <text>[0.063333..0.066667[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15e39hq">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0i3udt7">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ktum5n">
+          <text>20000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07pv0l2">
+        <description>E1</description>
+        <inputEntry id="UnaryTests_1ta8uej">
+          <text>[0.066667..0.07[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0f1we06">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1y6yhtr">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0lyn56i">
+          <text>15000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xpv40j">
+        <description>E2</description>
+        <inputEntry id="UnaryTests_12go78v">
+          <text>[0.07..0.073333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16ew84l">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02214ix">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0tb2at6">
+          <text>15000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1eiw7w1">
+        <description>E3</description>
+        <inputEntry id="UnaryTests_0bee6ka">
+          <text>[0.073333..0.076667[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gj83p1">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0nit29d">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0nwe7yo">
+          <text>15000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1m39nfs">
+        <description>E4</description>
+        <inputEntry id="UnaryTests_11jdnrd">
+          <text>[0.076667..0.08[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06j4hur">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0tdlr8l">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0q2nf5d">
+          <text>15000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0uqcqds">
+        <description>E5</description>
+        <inputEntry id="UnaryTests_0pu7xqd">
+          <text>[0.08..0.083333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wguvjd">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1o2nf4f">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_001x32v">
+          <text>15000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1oeqpt9">
+        <inputEntry id="UnaryTests_0p8m7om">
+          <text>[0.08333..1]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ljejd4">
+          <text>"hLoan"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1xu1hk8">
+          <text>0</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0qvdigh">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jkfhct">
+        <description>A1</description>
+        <inputEntry id="UnaryTests_0818p63">
+          <text>[0..0.003333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0un92lh">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ki3rhq">
+          <text>7.76</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1s6j28d">
+          <text>70000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0cmimkx">
+        <description>A2</description>
+        <inputEntry id="UnaryTests_1cglmll">
+          <text>[0.00333..0.006667[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fr4xx0">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ljzsz9">
+          <text>14.99</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ze29o2">
+          <text>67500</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_190kcwt">
+        <description>A3</description>
+        <inputEntry id="UnaryTests_0y7qxgt">
+          <text>[0.006667..0.01[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1trvcwj">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ycyhuu">
+          <text>15.49</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0plvj3c">
+          <text>65000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_03flwjn">
+        <description>A4</description>
+        <inputEntry id="UnaryTests_1fdrps9">
+          <text>[0.01..0.013333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03od2nz">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0h5e7ic">
+          <text>15.99</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_05gi71h">
+          <text>62500</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1v8i8jv">
+        <description>A5</description>
+        <inputEntry id="UnaryTests_1y4250a">
+          <text>[0.013333..0.01667[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b9q30p">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13ksk3h">
+          <text>16.49</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1e8bcup">
+          <text>60000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_14dk34y">
+        <description>B1</description>
+        <inputEntry id="UnaryTests_1lsubgn">
+          <text>[0.01667..0.02[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hpc8sj">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0oaeu1v">
+          <text>16.99</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_187suss">
+          <text>57500</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_01w62w3">
+        <description>B2</description>
+        <inputEntry id="UnaryTests_12vapnw">
+          <text>[0.02..0.023333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ylhupk">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_152dy5v">
+          <text>17.49</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1kehqde">
+          <text>55000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07uh8a5">
+        <description>B3</description>
+        <inputEntry id="UnaryTests_0jqy55x">
+          <text>[0.023333..0.026667[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1i9s15z">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wt76uc">
+          <text>17.99</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0cit8dz">
+          <text>52500</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13xlppx">
+        <description>B4</description>
+        <inputEntry id="UnaryTests_178ob61">
+          <text>[0.026667..0.03[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ok4ux2">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wbxput">
+          <text>18.49</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0rufwnh">
+          <text>50000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jspf4s">
+        <description>B5</description>
+        <inputEntry id="UnaryTests_13gha41">
+          <text>[0.03..0.033333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ajbu3r">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0vj5bvy">
+          <text>20.49</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_186ym4q">
+          <text>47500</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1i5h77n">
+        <description>C1</description>
+        <inputEntry id="UnaryTests_1s4kj0v">
+          <text>[0.033333..0.036667[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11ldhlj">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0cgnh5a">
+          <text>21.99</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1k559dw">
+          <text>45000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0lp5uxs">
+        <description>C2</description>
+        <inputEntry id="UnaryTests_15t64i9">
+          <text>[0.036667..0.04[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pkjuk4">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_041zy41">
+          <text>22.99</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_17ryeef">
+          <text>42500</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1pha0ln">
+        <description>C3</description>
+        <inputEntry id="UnaryTests_0qr32cm">
+          <text>[0.04..0.043333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07ckb4z">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07rqe1y">
+          <text>23.99</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0tvcu6g">
+          <text>40000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_164cbz3">
+        <description>C4</description>
+        <inputEntry id="UnaryTests_0yka7w2">
+          <text>[0.043333..0.046667[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1s9fzmw">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_123rdeo">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1lv1w9d">
+          <text>37500</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xismod">
+        <description>C5</description>
+        <inputEntry id="UnaryTests_0iqnvrk">
+          <text>[0.046667..0.05[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0g7qqqh">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1eb7hic">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1o8m8p9">
+          <text>35000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0iqu9vt">
+        <description>D1</description>
+        <inputEntry id="UnaryTests_0rzjae1">
+          <text>[0.05..0.053333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pdpuvc">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1476w4g">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0yiyxke">
+          <text>20000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0bnc79q">
+        <description>D2</description>
+        <inputEntry id="UnaryTests_1r0lvje">
+          <text>[0.053333..0.056667[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fh1ovh">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1nzbxuw">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1jda2sy">
+          <text>20000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0k5kmxu">
+        <description>D3</description>
+        <inputEntry id="UnaryTests_1o0zxgi">
+          <text>[0.056667..0.06[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13l5n5b">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1t4itvo">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_07o62yw">
+          <text>20000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0lm6ib9">
+        <description>D4</description>
+        <inputEntry id="UnaryTests_0s3ox3e">
+          <text>[0.06..0.063333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0t1ov2v">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1p5ta1l">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0wqrq60">
+          <text>20000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_095u7ot">
+        <description>D5</description>
+        <inputEntry id="UnaryTests_1dwk802">
+          <text>[0.063333..0.066667[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16rl15o">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0h4s5a9">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0b3ji3i">
+          <text>20000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1qbf37i">
+        <description>E1</description>
+        <inputEntry id="UnaryTests_1l81b14">
+          <text>[0.066667..0.07[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ggatyo">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1496h9h">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_024z7yx">
+          <text>15000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0wnz6z7">
+        <description>E2</description>
+        <inputEntry id="UnaryTests_076ubju">
+          <text>[0.07..0.073333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bhe1rh">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zpcpvm">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_02newrm">
+          <text>15000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1n9vc28">
+        <description>E3</description>
+        <inputEntry id="UnaryTests_06dszs7">
+          <text>[0.073333..0.076667[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pjegx6">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_03ysx0e">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1smumq3">
+          <text>15000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1smiui8">
+        <description>E4</description>
+        <inputEntry id="UnaryTests_02ul2it">
+          <text>[0.076667..0.08[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wojwpw">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1shqi36">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0trpkqr">
+          <text>15000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0u2ebvt">
+        <description>E5</description>
+        <inputEntry id="UnaryTests_1y8vvr6">
+          <text>[0.08..0.083333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13lvjcd">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1hbowsp">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1cqgqk2">
+          <text>15000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1js5jv3">
+        <inputEntry id="UnaryTests_1qa6rt2">
+          <text>[0.08333..1]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04g56eb">
+          <text>"hMoney"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1n7kvbh">
+          <text>0</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0fg36gq">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1kt8oh0">
+        <description>A1</description>
+        <inputEntry id="UnaryTests_1ljoyph">
+          <text>[0..0.003333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tvez4m">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0lt6r0s">
+          <text>7.76</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1jin95c">
+          <text>70000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_19znneo">
+        <description>A2</description>
+        <inputEntry id="UnaryTests_0hwken8">
+          <text>[0.00333..0.006667[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xxkx9p">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0fgpra1">
+          <text>14.99</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1bjz1b6">
+          <text>67500</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0nw1bj2">
+        <description>A3</description>
+        <inputEntry id="UnaryTests_0c5zows">
+          <text>[0.006667..0.01[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b7rfcx">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08v77li">
+          <text>15.49</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0d67v8w">
+          <text>65000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1s78csh">
+        <description>A4</description>
+        <inputEntry id="UnaryTests_0nekkum">
+          <text>[0.01..0.013333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0u43yol">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0rd86xp">
+          <text>15.99</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_07ucfck">
+          <text>62500</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0551lay">
+        <description>A5</description>
+        <inputEntry id="UnaryTests_0w4l04w">
+          <text>[0.013333..0.01667[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1q8flsl">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0dhhx9x">
+          <text>16.49</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0cxby36">
+          <text>60000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0w35b5v">
+        <description>B1</description>
+        <inputEntry id="UnaryTests_0x4er3l">
+          <text>[0.01667..0.02[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0a8kqv2">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1gjpot2">
+          <text>16.99</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1tgxc9m">
+          <text>57500</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0rn4q2z">
+        <description>B2</description>
+        <inputEntry id="UnaryTests_0k4g79s">
+          <text>[0.02..0.023333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wl8rqa">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qm7b65">
+          <text>17.49</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1jd3ez2">
+          <text>55000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1y2f18s">
+        <description>B3</description>
+        <inputEntry id="UnaryTests_1d7ua4o">
+          <text>[0.023333..0.026667[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0udvjxv">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1n4ojgr">
+          <text>17.99</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0cjc80i">
+          <text>52500</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1y4s934">
+        <description>B4</description>
+        <inputEntry id="UnaryTests_0tp3drd">
+          <text>[0.026667..0.03[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1p58snx">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0z0wrnm">
+          <text>18.49</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1qye3je">
+          <text>50000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_192hrfy">
+        <description>B5</description>
+        <inputEntry id="UnaryTests_06ke0v4">
+          <text>[0.03..0.033333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1q7qqga">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08p0ewa">
+          <text>20.49</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_17kayrh">
+          <text>47500</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0zj7v7b">
+        <description>C1</description>
+        <inputEntry id="UnaryTests_0qu9z2c">
+          <text>[0.033333..0.036667[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ffoi0c">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ovrfsv">
+          <text>21.99</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1hpdabb">
+          <text>45000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0hffesj">
+        <description>C2</description>
+        <inputEntry id="UnaryTests_11bebbt">
+          <text>[0.036667..0.04[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1l0lswp">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00k7ems">
+          <text>22.99</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0yttevx">
+          <text>42500</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jyxhos">
+        <description>C3</description>
+        <inputEntry id="UnaryTests_0sjw1l1">
+          <text>[0.04..0.043333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0y63iu5">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0o4b9tt">
+          <text>23.99</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_03bk5lm">
+          <text>40000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0rs8ztn">
+        <description>C4</description>
+        <inputEntry id="UnaryTests_0z4znc9">
+          <text>[0.043333..0.046667[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rfeq93">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1a3supn">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1r6n10f">
+          <text>37500</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0334soo">
+        <description>C5</description>
+        <inputEntry id="UnaryTests_1i4esij">
+          <text>[0.046667..0.05[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_064vomv">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0f7ue63">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0jbswh9">
+          <text>35000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1m6wi44">
+        <description>D1</description>
+        <inputEntry id="UnaryTests_1l6978g">
+          <text>[0.05..0.053333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01j8n6a">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ndpb78">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_08mxtt4">
+          <text>20000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0943iwr">
+        <description>D2</description>
+        <inputEntry id="UnaryTests_0bt9thx">
+          <text>[0.053333..0.056667[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jz3xb0">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fl2pin">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0u66sox">
+          <text>20000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1bg9ey5">
+        <description>D3</description>
+        <inputEntry id="UnaryTests_178w3vh">
+          <text>[0.056667..0.06[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1l3lgag">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ol6wgd">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0eknlfi">
+          <text>20000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0wys9er">
+        <description>D4</description>
+        <inputEntry id="UnaryTests_033an4s">
+          <text>[0.06..0.063333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1o4c7mq">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0l04etf">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0m8sryk">
+          <text>20000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_023uacm">
+        <description>D5</description>
+        <inputEntry id="UnaryTests_0h4xq01">
+          <text>[0.063333..0.066667[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jb6bfv">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0jfdnp4">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1rs1zxk">
+          <text>20000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13z7fdv">
+        <description>E1</description>
+        <inputEntry id="UnaryTests_1axjs65">
+          <text>[0.066667..0.07[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1h98ug2">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0a8zy0d">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1yitpi6">
+          <text>15000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_03n9n4n">
+        <description>E2</description>
+        <inputEntry id="UnaryTests_0fdmna2">
+          <text>[0.07..0.073333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1akcbwo">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1f06ies">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0uz0jy9">
+          <text>15000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0x9lqrv">
+        <description>E3</description>
+        <inputEntry id="UnaryTests_07c6snl">
+          <text>[0.073333..0.076667[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0oru3ip">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ns4q3u">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0lyoye2">
+          <text>15000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_15w38fv">
+        <description>E4</description>
+        <inputEntry id="UnaryTests_1x10w1z">
+          <text>[0.076667..0.08[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09lqfw5">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10qcpbj">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0u0tgg4">
+          <text>15000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1cdkrfs">
+        <description>E5</description>
+        <inputEntry id="UnaryTests_0ow70mu">
+          <text>[0.08..0.083333[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0m551pk">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_17czo4e">
+          <text>24.03</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1v33m4u">
+          <text>15000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ucplsa">
+        <inputEntry id="UnaryTests_1vdzzsq">
+          <text>[0.08333..1]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fqv4fx">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1sx5l0a">
+          <text>0</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_04e0a1r">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="input-probability-of-default" name="Probability of default" />
+  <inputData id="InputData_06hfemf" name="model" />
+  <textAnnotation id="TextAnnotation_1y916th">
+    <text>!!!!!Important!!!!
+If you update the A1 rate for hLoan or hMoney, you must update env variable: 
+1. INTEREST_RATE_DISCOUNT_LIMIT_MIN_VALUE_FOR_HMONEY
+2. INTEREST_RATE_DISCOUNT_LIMIT_MIN_VALUE_FOR_HLOAN</text>
+  </textAnnotation>
+  <association id="Association_0lj757i">
+    <sourceRef href="#TextAnnotation_1y916th" />
+    <targetRef href="#DecisionInterestRatesCreditLimitsAU" />
+  </association>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="DecisionInterestRatesCreditLimitsAU">
+        <dc:Bounds height="80" width="180" x="350" y="210" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_12wvkvt" dmnElementRef="input-probability-of-default">
+        <dc:Bounds height="45" width="125" x="158" y="228" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1uke0tv" dmnElementRef="InformationRequirement_1aa3u6t">
+        <di:waypoint x="283" y="251" />
+        <di:waypoint x="330" y="250" />
+        <di:waypoint x="350" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_02zww0u" dmnElementRef="InputData_06hfemf">
+        <dc:Bounds height="45" width="125" x="198" y="358" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1erock5" dmnElementRef="InformationRequirement_0gjuawg">
+        <di:waypoint x="261" y="358" />
+        <di:waypoint x="440" y="310" />
+        <di:waypoint x="440" y="290" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_17z9qrm" dmnElementRef="TextAnnotation_1y916th">
+        <dc:Bounds height="80" width="460" x="530" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0x2950g" dmnElementRef="Association_0lj757i">
+        <di:waypoint x="537" y="160" />
+        <di:waypoint x="483" y="210" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
