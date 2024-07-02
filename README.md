@@ -1,8 +1,24 @@
-# Prepare the DMN CSV files
-You need to prepare the csv files in advance to start the DMN unit test
+# Harmoney Camunda Unit Test Utility
 
-## Data Format
-The csv file should contains:
+This utility helps in preparing and running unit tests for DMN files using Camunda.
+
+## Data Preparation
+
+### Installing npm Dependencies
+
+Ensure you have the necessary npm dependencies installed by running:
+```
+npm install
+```
+This will install all required packages for the DMN Tester App.
+
+### Preparing the DMN CSV Files
+
+You need to prepare the CSV files in advance to start the DMN unit test.
+
+### Data Format
+
+The CSV file should contain:
 ```
 decisionId
 dmnFile
@@ -11,7 +27,7 @@ value,value
 ```
 The decisionId and dmnFile have to be 100% match to the actual ones in dmns/ folders
 
-## Data Example
+### Data Example
 ```
 decisionId,DecisionFraudRules
 dmnFile,fraud-rules.dmn
@@ -22,9 +38,15 @@ False,False,0,Successful
 False,False,0.8,Successful
 ```
 
-# Docker Commands
+### Generate the unit test config files
+```
+npm start
+```
+You can see the generated files in dmnConfigs/
+
+## Docker Commands
 Examples on how to run the App and Unit Tests with Docker
-## DMN Tester App
+### DMN Tester App
 Starts the Webserver with the DMN Tester App.
 
 Open http://localhost:8883 in your Browser.
@@ -40,7 +62,7 @@ docker run \
    -p 8883:8883 \
    pame/camunda-dmn-tester
 ```
-## Running the DMN Unit Tests via CI
+### Running the DMN Unit Tests via CI
 This creates automatically Unit Tests of your DMN Tests and runs them with `sbt`.
 
 In the end you will have the Test Reports (`target/test-reports`) you can show, for example in your CI-Tool.
