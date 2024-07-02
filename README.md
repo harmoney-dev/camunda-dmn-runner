@@ -1,6 +1,6 @@
-# Harmoney Camunda Unit Test Utility
+# Harmoney Camunda DMN Runner Utility
 
-This utility helps in preparing and running unit tests for DMN files using Camunda.
+This utility helps in preparing and validate the decisions for DMN files from Camunda.
 
 ## Data Preparation
 

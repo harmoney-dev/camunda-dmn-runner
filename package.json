@@ -1,7 +1,7 @@
 {
-  "name": "camunda-unit-test",
+  "name": "camunda-dmn-runner",
   "version": "1.0.0",
-  "description": "Unit test for Camunda DMN and BPMN",
+  "description": "Utility helps in preparing and validate the decisions for DMN files from Camunda",
   "main": "src/index.ts",
   "scripts": {
     "start": "ts-node src/index.ts",
@@ -13,8 +13,8 @@
   },
   "keywords": [
     "Camunda",
-    "Unit",
-    "Test"
+    "DMN",
+    "Runner"
   ],
   "author": "Shawn Xia",
   "license": "ISC",
