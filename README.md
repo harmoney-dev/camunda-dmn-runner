@@ -40,7 +40,7 @@ False,False,0.8,Successful
 
 ### Generate the unit test config files
 ```
-npm start
+npm run data
 ```
 You can see the generated files in dmnConfigs/
 

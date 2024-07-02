@@ -4,12 +4,11 @@
   "description": "Utility helps in preparing and validate the decisions for DMN files from Camunda",
   "main": "src/index.ts",
   "scripts": {
-    "start": "ts-node src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "data": "ts-node src/index.ts"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/harmoney-dev/camunda-unit-test.git"
+    "url": "git+https://github.com/harmoney-dev/camunda-dmn-runner.git"
   },
   "keywords": [
     "Camunda",
@@ -19,9 +18,9 @@
   "author": "Shawn Xia",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/harmoney-dev/camunda-unit-test/issues"
+    "url": "https://github.com/harmoney-dev/camunda-dmn-runner/issues"
   },
-  "homepage": "https://github.com/harmoney-dev/camunda-unit-test#readme",
+  "homepage": "https://github.com/harmoney-dev/camunda-dmn-runner#readme",
   "dependencies": {
     "csv-parser": "^3.0.0"
   },
