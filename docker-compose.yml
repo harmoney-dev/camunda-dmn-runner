@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  camunda-dmn-runner:
+    image: camunda-dmn-runner
+    container_name: camunda-dmn-runner
+    volumes:
+      - ./dmnCSV:/app/dmnCSV
+      - ./dmns:/app/dmns
+      - ./dmnConfigs:/app/dmnConfigs
+    ports:
+      - "8882:8882"
+    environment:
+      - PORT=8882
+
+  camunda-dmn-tester:
+    image: australia-southeast1-docker.pkg.dev/harmoney-core-platform-dev/harmoney/camunda-dmn-tester:latest
+    container_name: camunda-dmn-tester
+    environment:
+      - TESTER_CONFIG_PATHS=/dmnConfigs,/server/src/test/resources/dmn-configs
+    volumes:
+      - ./dmns:/opt/docker/dmns
+      - ./dmnConfigs:/opt/docker/dmnConfigs
+    ports:
+      - "8883:8883"

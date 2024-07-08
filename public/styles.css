@@ -1,0 +1,97 @@
+/* Set basic styles for the body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Style for the header */
+h1 {
+    background-color: rgb(200, 74, 12);
+    color: white;
+    padding: 20px;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #efc07a;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #c66715;
+}
+
+/* Style for the Reset All Files button */
+#clearAllButton {
+    background-color: #8b0000; /* Dark red */
+}
+
+#clearAllButton:hover {
+    background-color: #660000; /* Darker red */
+}
+
+.message, .error {
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.message {
+    color: green;
+    background-color: #e6ffed;
+}
+
+.error {
+    color: red;
+    background-color: #ffe6e6;
+}
+
+.file-list {
+    list-style: none;
+    padding: 0;
+}
+
+.file-list li {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+.file-list li input {
+    margin-right: 10px;
+}
+
+.link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}

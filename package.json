@@ -4,7 +4,8 @@
   "description": "Utility helps in preparing and validate the decisions for DMN files from Camunda",
   "main": "src/index.ts",
   "scripts": {
-    "data": "ts-node src/index.ts"
+    "data": "ts-node src/dataPreparation.ts",
+    "start": "ts-node src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -22,9 +23,16 @@
   },
   "homepage": "https://github.com/harmoney-dev/camunda-dmn-runner#readme",
   "dependencies": {
-    "csv-parser": "^3.0.0"
+    "archiver": "^7.0.1",
+    "csv-parser": "^3.0.0",
+    "date-fns": "^3.6.0",
+    "express": "^4.19.2",
+    "express-fileupload": "^1.5.0"
   },
   "devDependencies": {
+    "@types/archiver": "^6.0.2",
+    "@types/express": "^4.17.21",
+    "@types/express-fileupload": "^1.5.0",
     "@types/node": "^20.14.9",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3"

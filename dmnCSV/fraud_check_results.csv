@@ -1,7 +1,7 @@
-decisionId,DecisionFraudRules
-dmnFile,fraud-rules.dmn
-input:isBankAccountHolderMissing,input:isBankAccountHolderUnavailable,input:fraudCheckRisk,output:fraudCheckResult
-True,False,0,Failed
-False,True,0.8,Failed
-False,False,0,Successful
-False,False,0.8,Successful
+decisionId,DecisionFraudRules,,,
+dmnFile,fraud-rules.dmn,,,
+rowIndex,input:isBankAccountHolderMissing,input:isBankAccountHolderUnavailable,input:fraudCheckRisk,output:fraudCheckResult
+1,TRUE,FALSE,0,Failed
+2,FALSE,TRUE,0.8,Failed
+3,FALSE,FALSE,0,Successful
+4,FALSE,FALSE,0.8,Successful
