@@ -1,0 +1,33 @@
+{{- if .Values.ingressInternal.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: camunda-dmn-runner
+  annotations:
+    spec.ingressClassName: {{ .Values.ingressInternal.class }}
+    {{- if .Values.ingressInternal.enableRewrite }}
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    {{- end }}
+    {{- range $key, $value := .Values.ingressInternal.annotations }}
+    {{ $key }}: {{ $value | quote }}
+    {{- end }}
+spec:
+  rules:
+    - host: {{ .Values.ingressInternal.host }}
+      http:
+        paths:
+          - path: {{ .Values.ingressInternal.pathOverride }}
+            pathType: {{ .Values.ingressInternal.pathType }}
+            backend:
+              service:
+                name: camunda-dmn-runner
+                port:
+                  number: {{ .Values.service.portRunner }}
+          - path: {{ .Values.ingressInternal.pathOverride }}
+            pathType: {{ .Values.ingressInternal.pathType }}
+            backend:
+              service:
+                name: camunda-dmn-runner
+                port:
+                  number: {{ .Values.service.portTester }}
+{{- end }}
