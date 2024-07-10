@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: camunda-dmn-runner-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: camunda-dmn-runner-pod
+  template:
+    metadata:
+      labels:
+        app: camunda-dmn-runner-pod
+    spec:
+      containers:
+        - name: camunda-dmn-runner
+          image: "australia-southeast1-docker.pkg.dev/harmoney-core-platform-dev/harmoney/camunda-dmn-runner:latest"
+          ports:
+            - containerPort: 8882
+          env:
+            - name: PORT
+              value: "8882"
+          volumeMounts:
+            - name: dmn-volume
+              mountPath: /app/dmnCSV
+              subPath: dmnCSV
+            - name: dmn-volume
+              mountPath: /app/dmns
+              subPath: dmns
+            - name: dmn-volume
+              mountPath: /app/dmnConfigs
+              subPath: dmnConfigs
+        - name: camunda-dmn-tester
+          image: "australia-southeast1-docker.pkg.dev/harmoney-core-platform-dev/harmoney/camunda-dmn-tester:latest"
+          ports:
+            - containerPort: 8883
+          env:
+            - name: TESTER_CONFIG_PATHS
+              value: "/dmnConfigs"
+            - name: PORT
+              value: "8883"
+          volumeMounts:
+            - name: dmn-volume
+              mountPath: /opt/docker/dmns
+              subPath: dmns
+            - name: dmn-volume
+              mountPath: /opt/docker/dmnConfigs
+              subPath: dmnConfigs
+      volumes:
+        - name: dmn-volume
+          persistentVolumeClaim:
+            claimName: dmn-pvc

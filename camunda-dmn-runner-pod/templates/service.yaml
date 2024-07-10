@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: camunda-dmn-runner-pod
+spec:
+  type: ClusterIP
+  selector:
+    app: camunda-dmn-runner-pod
+  ports:
+    - name: runner
+      port: 8882
+      targetPort: 8882
+    - name: tester
+      port: 8883
+      targetPort: 8883

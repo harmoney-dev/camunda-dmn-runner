@@ -4,7 +4,8 @@ metadata:
   name: dmn-pvc
 spec:
   accessModes:
-    - {{ .Values.persistence.accessMode }}
+    - ReadWriteOnce
   resources:
     requests:
-      storage: {{ .Values.persistence.size }}
+      storage: 1Gi
+  storageClassName: standard-rwo
